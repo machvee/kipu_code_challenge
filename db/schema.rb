@@ -15,8 +15,10 @@ ActiveRecord::Schema.define(version: 2019_03_11_004644) do
   create_table "admissions", force: :cascade do |t|
     t.datetime "moment"
     t.integer "patient_id"
+    t.integer "facility_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["facility_id"], name: "index_admissions_on_facility_id"
     t.index ["patient_id"], name: "index_admissions_on_patient_id"
   end
 
@@ -105,16 +107,20 @@ ActiveRecord::Schema.define(version: 2019_03_11_004644) do
   create_table "template_fields", force: :cascade do |t|
     t.string "field_name"
     t.text "placeholder"
+    t.integer "facility_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["facility_id"], name: "index_template_fields_on_facility_id"
   end
 
   create_table "treatment_models", force: :cascade do |t|
     t.text "description"
     t.text "necessity"
+    t.integer "facility_id"
     t.integer "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["facility_id"], name: "index_treatment_models_on_facility_id"
     t.index ["patient_id"], name: "index_treatment_models_on_patient_id"
   end
 

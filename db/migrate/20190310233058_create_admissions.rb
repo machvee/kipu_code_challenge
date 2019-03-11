@@ -3,7 +3,7 @@ class CreateAdmissions < ActiveRecord::Migration[5.2]
     create_table :admissions do |t|
       t.datetime :moment
       t.belongs_to :patient, foreign_key: true
-
+      t.belongs_to :facility, foreign_key: true
       t.timestamps
     end
   end
