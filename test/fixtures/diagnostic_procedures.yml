@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  moment: 2019-03-10 19:48:16
+  patient: one
+
+two:
+  description: MyText
+  moment: 2019-03-10 19:48:16
+  patient: two

@@ -1,0 +1,32 @@
+<%= form_with(model: order_frequency, local: true) do |form| %>
+  <% if order_frequency.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order_frequency.errors.count, "error") %> prohibited this order_frequency from being saved:</h2>
+
+      <ul>
+      <% order_frequency.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit %>
+    <%= form.number_field :unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :medication_order_id %>
+    <%= form.text_field :medication_order_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

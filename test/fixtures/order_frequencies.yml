@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value: MyString
+  unit: 1
+  medication_order: one
+
+two:
+  value: MyString
+  unit: 1
+  medication_order: two

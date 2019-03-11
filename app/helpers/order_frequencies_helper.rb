@@ -1,0 +1,2 @@
+module OrderFrequenciesHelper
+end

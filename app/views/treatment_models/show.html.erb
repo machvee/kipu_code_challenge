@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @treatment_model.description %>
+</p>
+
+<p>
+  <strong>Necessity:</strong>
+  <%= @treatment_model.necessity %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @treatment_model.patient %>
+</p>
+
+<%= link_to 'Edit', edit_treatment_model_path(@treatment_model) %> |
+<%= link_to 'Back', treatment_models_path %>
