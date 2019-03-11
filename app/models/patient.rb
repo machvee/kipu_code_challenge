@@ -11,4 +11,9 @@ class Patient < ApplicationRecord
   delegate :diagnoses, to: :admission
   has_many :diagnostic_procedures
   has_many :treatments
+
+  def age
+    now = Time.now.utc.to_date
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
 end

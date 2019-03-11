@@ -1,0 +1,2 @@
+class TemplateField < ApplicationRecord
+end

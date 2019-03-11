@@ -1,0 +1,2 @@
+class EmergencyTransferSummaryController < ApplicationController
+end

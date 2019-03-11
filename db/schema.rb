@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_10_234903) do
+ActiveRecord::Schema.define(version: 2019_03_11_004644) do
 
   create_table "admissions", force: :cascade do |t|
     t.datetime "moment"
@@ -100,6 +100,13 @@ ActiveRecord::Schema.define(version: 2019_03_10_234903) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admission_id"], name: "index_symptoms_on_admission_id"
+  end
+
+  create_table "template_fields", force: :cascade do |t|
+    t.string "field_name"
+    t.text "placeholder"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "treatment_models", force: :cascade do |t|
