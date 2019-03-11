@@ -3,5 +3,5 @@ class Admission < ApplicationRecord
 
   has_many :diagnoses
   has_many :symptoms
-  has_mahy :observations
+  has_many :observations
 end
