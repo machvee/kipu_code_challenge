@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :admissions
   resources :patients
   resources :facilities
-  resources :emergency_transfer_summary, only: [:show]
+  resources :emergency_transfer_summary, only: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

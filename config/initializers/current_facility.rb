@@ -1,0 +1,1 @@
+CURRENT_FACILITY_NAME = 'Blue Alps Ski Camp'
