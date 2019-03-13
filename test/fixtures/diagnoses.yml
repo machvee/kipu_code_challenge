@@ -1,13 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+broken_leg:
   coding_system: MyString
   code: MyString
-  description: MyText
-  admission: one
+  diagnosable: one (Admission)
 
-two:
+broken_arm:
   coding_system: MyString
   code: MyString
   description: MyText
-  admission: two
+  diagnosable: one (Admission)
+
+arthritic_knee:
+  coding_system: MyString
+  code: MyString
+  description: MyText
+  diagnosable: one (Patient)

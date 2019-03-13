@@ -31,13 +31,14 @@ ActiveRecord::Schema.define(version: 2019_03_11_004644) do
   end
 
   create_table "diagnoses", force: :cascade do |t|
+    t.string "diagnosable_type"
+    t.integer "diagnosable_id"
     t.string "coding_system"
     t.string "code"
     t.text "description"
-    t.integer "admission_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["admission_id"], name: "index_diagnoses_on_admission_id"
+    t.index ["diagnosable_type", "diagnosable_id"], name: "index_diagnoses_on_diagnosable_type_and_diagnosable_id"
   end
 
   create_table "diagnostic_procedures", force: :cascade do |t|

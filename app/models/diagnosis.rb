@@ -1,3 +1,3 @@
 class Diagnosis < ApplicationRecord
-  belongs_to :admission
+  belongs_to :diagnosable, polymorphic: true
 end

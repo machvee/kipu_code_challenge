@@ -3,7 +3,9 @@
 one:
   field_name: MyString
   placeholder: MyText
+  facility: one
 
 two:
   field_name: MyString
   placeholder: MyText
+  facility: two

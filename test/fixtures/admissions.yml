@@ -3,7 +3,9 @@
 one:
   moment: 2019-03-10 19:30:58
   patient: one
+  facility: one
 
 two:
   moment: 2019-03-10 19:30:58
   patient: two
+  facility: two

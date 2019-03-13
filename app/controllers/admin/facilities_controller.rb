@@ -1,4 +1,4 @@
-class FacilitiesController < ApplicationController
+class Admin::FacilitiesController < ApplicationController
   before_action :set_facility, only: [:show, :edit, :update, :destroy]
 
   # GET /facilities
@@ -10,6 +10,7 @@ class FacilitiesController < ApplicationController
   # GET /facilities/1
   # GET /facilities/1.json
   def show
+    byebug
   end
 
   # GET /facilities/new
@@ -56,7 +57,7 @@ class FacilitiesController < ApplicationController
   def destroy
     @facility.destroy
     respond_to do |format|
-      format.html { redirect_to facilities_url, notice: 'Facility was successfully destroyed.' }
+      format.html { redirect_to admin_facilities_url, notice: 'Facility was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
