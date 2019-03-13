@@ -1,7 +1,7 @@
 class EmergencyTransferSummaryController < ApplicationController
   before_action :find_patient
 
-  def index
+  def show
     @admission = @patient.admissions.most_recent
   end
 
