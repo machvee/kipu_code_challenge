@@ -1,0 +1,2 @@
+class ChronicCondition < Diagnosis
+end

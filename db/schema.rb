@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_004644) do
+ActiveRecord::Schema.define(version: 2019_03_13_235443) do
 
   create_table "admissions", force: :cascade do |t|
     t.datetime "moment"
@@ -114,15 +114,13 @@ ActiveRecord::Schema.define(version: 2019_03_11_004644) do
     t.index ["facility_id"], name: "index_template_fields_on_facility_id"
   end
 
-  create_table "treatment_models", force: :cascade do |t|
+  create_table "treatments", force: :cascade do |t|
     t.text "description"
     t.text "necessity"
-    t.integer "facility_id"
     t.integer "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["facility_id"], name: "index_treatment_models_on_facility_id"
-    t.index ["patient_id"], name: "index_treatment_models_on_patient_id"
+    t.index ["patient_id"], name: "index_treatments_on_patient_id"
   end
 
 end

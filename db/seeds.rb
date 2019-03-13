@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #   name	{{facility.name}}	Show	Edit	Destroy
-facility = Facility.create!(name: 'Blue Alps Ski Camp')
+facility = Facility.create!(name: CURRENT_FACILITY_NAME)
 facility.template_fields.create!(field_name: 'Name', placeholder: '{{facility.name}}')
 facility.template_fields.create!(field_name: 'First Name', placeholder: '{{patient.first_name}}')
 facility.template_fields.create!(field_name: 'Middle Name', placeholder: '{{patient.middle_name}}')
@@ -29,3 +29,67 @@ The staff performed
 revealing {{patient.diagnoses > described_code | to_sentence}}. 
 Our team proceeded to {{patient.treatments > description, “to”, necessity | space_join | to_sentence}}
 ENDSUMMARY
+
+joe = Patient.create!(
+  first_name: 'Joe',
+  last_name: 'Smith',
+  middle_name: 'W.',
+  dob: '1993-08-17 12:00:00',
+  mr: '873476832434',
+  gender: :male
+)
+date_of_admission = 3.days.ago
+
+admission = facility.admissions.create!(
+  moment: date_of_admission,
+  patient: joe
+)
+
+diagnosis = admission.diagnoses.create!(
+  coding_system: 'AA',
+  code: '17R',
+  description: 'Sprained Knee (L)'
+)
+
+symptoms = admission.symptoms.create!(
+  [
+    {description: 'Knee (L) pain'},
+    {description: 'Knee (L) swollen'}
+  ]
+)
+
+observation =  admission.observations.create!(
+  moment: date_of_admission + 40.minutes,
+  description: 'Knee (L) swelling reduced'
+)
+
+alergies = joe.alergies.create!(
+  [
+    { description: 'ceftin' },
+    { description: 'prolox' }
+  ]
+)
+
+medication1 = joe.medications.create!(
+  name: 'Warfarin',
+  unit: :mg,
+  dosage: 0.25,
+  route: :po,
+  necessity: 'depression'
+)
+
+chronic_condition = joe.chronic_conditions.create!(
+  coding_system: 'AA',
+  code: '87G',
+  description: 'Arthritic Knee'
+)
+
+diagnostic_procedure = joe.diagnostic_procedures.create!(
+  moment: date_of_admission + 20.minutes,
+  description: 'Knee (L) X-Ray'
+)
+
+treatment = joe.treatments.create!(
+   description: 'ice bag on Knee (L)',
+   necessity: 'reduce swelling'
+)
