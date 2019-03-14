@@ -1,0 +1,2 @@
+module EmergencyTransfersHelper
+end

@@ -5,6 +5,10 @@ class EmergencyTransferSummaryController < ApplicationController
     @admission = @patient.admissions.most_recent
   end
 
+  def index
+    @patients = Patients.all
+  end
+
   def find_patient
     @patient = @facility.patients.find(parms[:patient_id])
   end

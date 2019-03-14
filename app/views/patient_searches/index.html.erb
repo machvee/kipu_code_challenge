@@ -1,0 +1,6 @@
+<%= bootstrap_form_with(url: emergency_, local: true) do |f| %>
+  <%= f.email_field :email %>
+  <%= f.password_field :password %>
+  <%= f.check_box :remember_me %>
+  <%= f.submit "Log In" %>
+<% end %>
