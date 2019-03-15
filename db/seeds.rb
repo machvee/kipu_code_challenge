@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #   name	{{facility.name}}	Show	Edit	Destroy
 facility = Facility.create!(name: CURRENT_FACILITY_NAME)
-facility.template_fields.create!(field_name: 'Name', placeholder: '{{facility.name}}')
-facility.template_fields.create!(field_name: 'First Name', placeholder: '{{patient.first_name}}')
-facility.template_fields.create!(field_name: 'Middle Name', placeholder: '{{patient.middle_name}}')
-facility.template_fields.create!(field_name: 'Last Name', placeholder: '{{patient.last_name}}')
-facility.template_fields.create!(field_name: 'Medical Record (MR)', placeholder: '{{patient.mr}}')
-facility.template_fields.create!(field_name: 'Summary', placeholder: <<-ENDSUMMARY)
+facility.template_fields.create!(field_name: 'name', placeholder: '{{facility.name}}')
+facility.template_fields.create!(field_name: 'first_name', placeholder: '{{patient.first_name}}')
+facility.template_fields.create!(field_name: 'middle_name', placeholder: '{{patient.middle_name}}')
+facility.template_fields.create!(field_name: 'last_name', placeholder: '{{patient.last_name}}')
+facility.template_fields.create!(field_name: 'medical_record_(mr)', placeholder: '{{patient.mr}}')
+facility.template_fields.create!(field_name: 'summary', placeholder: <<-ENDSUMMARY)
 This {{patient.age}} years old {{patient.gender}} was admitted to {{facility.name}} on 
 {{patient.admission.date}} at {{patient.admission.time}} due to 
 {{patient.admission.diagnoses > described_code | to_sentence}}. The observed symptoms on 

@@ -1,11 +1,27 @@
-<%= @patient.full_name %>
-<div class="row">
-  <div class="col">col</div>
-  <div class="col">col</div>
-  <div class="col">col</div>
-  <div class="col">col</div>
-</div>
-<div class="row">
-  <div class="col-8">col-8</div>
-  <div class="col-4">col-4</div>
+<div class='container'>
+  <div class="row">
+    <div class="col border bg-light">
+      <h5><%="Emergency Transfer Summary (Form 34L-D)"%></h5>
+    </div>
+  </div>
+  <div class="row" style="height: 30px">
+    <div class="col border">
+      <h6><%="Transferring Facility"%></h6>
+    </div>
+  </div>
+  <div class="row" style="height: 60px">
+    <div class="col-2 border">
+      <%= TemplateField['name'] %>
+    </div>
+    <div class="col-8 border">col-8</div>
+  </div>
+  <div class="row">
+    <div class="col border"><%= @patient.full_name %></div>
+  </div>
+  <div class="row">
+    <div class="col border">col</div>
+    <div class="col border">col</div>
+    <div class="col border">col</div>
+    <div class="col border">col</div>
+  </div>
 </div>

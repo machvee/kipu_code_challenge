@@ -1,4 +1,6 @@
-<%= bootstrap_form_with(url: patient_searches_url, local: true) do |f| %>
-  <%= f.select 'patient_id', @patients.map {|p| [p.full_name, p.id]}, {label: "#{@facility.name} Patients", prompt: '--Select a Patient--'} %>
-  <%= f.submit "View Emergency Summary" %>
-<% end %>
+<div class='container'>
+  <%= bootstrap_form_with(url: patient_searches_url, local: true) do |f| %>
+    <%= f.select 'patient_id', @patients.map {|p| [p.full_name, p.id]}, {label: "#{@facility.name} Patients", prompt: '--Select a Patient--'} %>
+    <%= f.submit "View Emergency Summary" %>
+  <% end %>
+</div>
