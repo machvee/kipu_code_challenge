@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  root to: "patients#index"
   resources :patient_searches, only: [:new, :create]
   resources :patients, only: [:index] do
     resources :admissions, only: [:index]
