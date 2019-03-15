@@ -1,2 +1,2 @@
-module EmergencyTransfersHelper
+module PatientSearchesHelper
 end

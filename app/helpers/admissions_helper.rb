@@ -1,2 +1,2 @@
-module EmergencyTransferSummaryHelper
+module AdmissionsHelper
 end

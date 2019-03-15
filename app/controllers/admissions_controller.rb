@@ -1,15 +1,10 @@
-class EmergencyTransferSummaryController < ApplicationController
+class AdmissionsController < ApplicationController
   before_action :find_patient
 
-  def show
-    @admission = @patient.admissions.most_recent
-  end
-
   def index
-    @patients = Patients.all
   end
 
   def find_patient
-    @patient = @facility.patients.find(parms[:patient_id])
+    @patient = @facility.patients.find(params[:patient_id])
   end
 end

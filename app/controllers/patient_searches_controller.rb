@@ -7,7 +7,7 @@ class PatientSearchesController < ApplicationController
   end
 
   def create
-    redirect_to admissions_url(@patient)
+    redirect_to patient_admissions_url(@patient)
   end
 
   private

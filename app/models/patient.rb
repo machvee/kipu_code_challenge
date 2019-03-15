@@ -22,4 +22,14 @@ class Patient < ApplicationRecord
   def admission
     admissions.most_recent
   end
+
+  def full_name
+    middle_args = middle_name.blank? ? ['', ''] : [middle_name, ' ']
+    format(
+      "%s %s%s%s",
+      first_name,
+      *middle_args,
+      last_name
+    )
+  end
 end
