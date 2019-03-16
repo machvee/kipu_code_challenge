@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: MyString
-  middle_name: MyString
-  last_name: MyString
-  mr: MyString
-  dob: 2019-03-10 19:22:37
+  first_name: Dave
+  middle_name: J
+  last_name: McVicar
+  mr: 88838348348
+  dob: 1993-03-10 19:22:37
 
 two:
   first_name: MyString
