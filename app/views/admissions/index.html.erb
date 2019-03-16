@@ -13,15 +13,35 @@
     <div class="col-2 border">
       <%= template_field('name') %>
     </div>
-    <div class="col-8 border">col-8</div>
+    <div class="col-10 border"></div>
+  </div>
+  <div class="row" style="height: 30px">
+    <div class="col border">
+      <h6><%="Patient Information"%></h6>
+    </div>
   </div>
   <div class="row">
-    <div class="col border"><%= template_field('first_name') %></div>
+    <div class="col border">
+      <div class='h6'>First Name</div>
+      <%= template_field('first_name') %>
+    </div>
+    <div class="col border">
+      <div class='h6'>Middle Name</div>
+      <%= template_field('middle_name') %>
+    </div>
+    <div class="col border">
+      <div class='h6'>Last Name</div>
+      <%= template_field('last_name') %>
+    </div>
+    <div class="col border">
+      <div class='h6'>Medical Record (MR)</div>
+      <%= template_field('medical_record_(mr)') %>
+    </div>
   </div>
-  <div class="row">
-    <div class="col border">col</div>
-    <div class="col border">col</div>
-    <div class="col border">col</div>
-    <div class="col border">col</div>
+  <div class="row" style="height: 300px">
+    <div class="col-12 border">
+      <div class='h6'>Summary</div>
+      <%= template_field('summary') %>
+    </div>
   </div>
 </div>

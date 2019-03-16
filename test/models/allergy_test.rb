@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AlergyTest < ActiveSupport::TestCase
+class AllergyTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

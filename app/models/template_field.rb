@@ -9,10 +9,6 @@ class TemplateField < ApplicationRecord
     Facility.current.template_fields.find_by(field_name: field_name)
   end
 
-  def title
-    name.titleize
-  end
-
   def substitute_for(patient)
     context = {
       facility: facility,

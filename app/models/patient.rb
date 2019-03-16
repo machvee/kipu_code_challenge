@@ -1,7 +1,7 @@
 class Patient < ApplicationRecord
   enum gender: [:female, :male, :other]
 
-  has_many :alergies, dependent: :destroy
+  has_many :allergies, dependent: :destroy
   has_many :medications, foreign_key: :patient_id, class_name: 'MedicationOrder', dependent: :destroy
 
   has_many :admissions, dependent: :destroy do
@@ -21,6 +21,10 @@ class Patient < ApplicationRecord
 
   def admission
     admissions.most_recent
+  end
+
+  def diagnoses
+    admission.diagnoses
   end
 
   def full_name

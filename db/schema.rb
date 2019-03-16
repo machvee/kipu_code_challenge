@@ -22,12 +22,12 @@ ActiveRecord::Schema.define(version: 2019_03_13_235443) do
     t.index ["patient_id"], name: "index_admissions_on_patient_id"
   end
 
-  create_table "alergies", force: :cascade do |t|
+  create_table "allergies", force: :cascade do |t|
     t.text "description"
     t.integer "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["patient_id"], name: "index_alergies_on_patient_id"
+    t.index ["patient_id"], name: "index_allergies_on_patient_id"
   end
 
   create_table "diagnoses", force: :cascade do |t|
