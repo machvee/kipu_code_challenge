@@ -17,16 +17,20 @@ class MustacheParser
 
   private
 
+  WORD_COMMANDS = {
+    space_join: ->(words) { words.join(' ') }
+  }
+
+  PHRASE_COMMANDS = {
+    to_sentence: ->(phrases) { phrases.to_sentence }
+  }
+
   def self.word_commands(cmd)
-    {
-      space_join: ->(words) { words.join(' ') }
-    }[cmd.to_sym]
+    WORD_COMMANDS[cmd]
   end
 
   def self.phrase_commands(cmd)
-    {
-      to_sentence: ->(phrases) { phrases.to_sentence }
-    }[cmd.to_sym]
+    PHRASE_COMMANDS[cmd]
   end
 
   def field_spec_parse(e)
@@ -37,8 +41,10 @@ class MustacheParser
     if formatting.present?
       attr_list, *commands = formatting.split("|").map(&:squish) # ['name, dosage, route, ...', 'space_join', 'to_sentence']
       attrs = attr_list.split(",").map(&:squish) # ['name', 'dosage', 'route', 'frequence', '"to"', 'necessity']
-      word_processor = MustacheParser.word_commands(commands[0]) if commands[0]
-      phrase_processor = MustacheParser.phrase_commands(commands[1]) if commands[1]
+      commands.map(&:to_sym).each do |cmd|
+        word_processor = MustacheParser.word_commands(cmd) if WORD_COMMANDS[cmd].present?
+        phrase_processor = MustacheParser.phrase_commands(cmd) if PHRASE_COMMANDS[cmd].present?
+      end
     end
     messages = models.split(".").map(&:squish) # ['patient', 'medications']
     obj = @context[messages.first.to_sym]
