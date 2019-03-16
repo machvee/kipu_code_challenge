@@ -1,15 +1,17 @@
 class MustacheParser
   MUSTACHE_RE = /{{([^}]*)}}/
 
-  def parse(context)
+  def initialize(context)
     # context = {
     #   facility: facility,
     #   patient: patient
     # }
-    output = ""
-    m = matches(placeholder, MUSTACHE_RE)
-    m.each do |match|
-      str = fields_spec_parse(m[1], context)
+    @context = context
+  end
+
+  def parse(template)
+    template.gsub(MUSTACHE_RE) do |template_expression|
+      field_spec_parse(template_expression.match(MUSTACHE_RE)[1])
     end
   end
 
@@ -27,23 +29,23 @@ class MustacheParser
     }[cmd.to_sym]
   end
 
-  def fields_spec_parse(e, context)
+  def field_spec_parse(e)
     # e.g 'patient.medications > name, dosage, route, frequency, “to”, necessity | space_join | to_sentence'
     word_processor = phrase_processor = ->(arg) {arg.dup}
     models, formatting = e.split(">") # ['patient.medications', ' name, dosage, route, ...']
-    attr_list = []
+    attrs = []
     if formatting.present?
-      attr_list, commands = formatting.split("|").map(&:squish) # ['name, dosage, route, ...', 'space_join', 'to_sentence']
-      attrs = attr_list.split(",").map(&:squsih) # ['name', 'dosage', 'route', 'frequence', '"to"', 'necessity']
+      attr_list, *commands = formatting.split("|").map(&:squish) # ['name, dosage, route, ...', 'space_join', 'to_sentence']
+      attrs = attr_list.split(",").map(&:squish) # ['name', 'dosage', 'route', 'frequence', '"to"', 'necessity']
       word_processor = MustacheParser.word_commands(commands[0]) if commands[0]
       phrase_processor = MustacheParser.phrase_commands(commands[1]) if commands[1]
     end
-    messages = models.split(".") # ['patient', 'medications']
-    obj = context[messages.first.to_sym]
+    messages = models.split(".").map(&:squish) # ['patient', 'medications']
+    obj = @context[messages.first.to_sym]
     messages[1..-1].each do |msg|
       obj = obj.send(msg)
     end
-    if attr_list.empty? 
+    if attrs.empty? 
       # obj is an attribute
       obj
     else
@@ -51,7 +53,7 @@ class MustacheParser
       phrases=[]
       obj.each do |row|
         words = []
-        attr_list.each do |attr|
+        attrs.each do |attr|
           words << if m = attr.match(/"([^"]*)"/)
             m[1]
           else
@@ -61,16 +63,6 @@ class MustacheParser
         phrases << word_processor[words]
       end
       phrase_processor[phrases]
-    end
-  end
-
-  def matches(s, re)
-    start_at = 0
-    [].tap do |matches|
-      while(m = s.match(re, start_at))
-        matches.push(m)
-        start_at = m.end(0)
-      end
     end
   end
 end
