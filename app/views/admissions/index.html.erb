@@ -11,12 +11,12 @@
   </div>
   <div class="row" style="height: 60px">
     <div class="col-2 border">
-      <%= TemplateField['name'] %>
+      <%= template_field('name') %>
     </div>
     <div class="col-8 border">col-8</div>
   </div>
   <div class="row">
-    <div class="col border"><%= @patient.full_name %></div>
+    <div class="col border"><%= template_field('first_name') %></div>
   </div>
   <div class="row">
     <div class="col border">col</div>
