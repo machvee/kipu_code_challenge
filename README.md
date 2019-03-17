@@ -1,24 +1,13 @@
 # README
+David McVicar submission to Kipu code challenge.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+to run:
 
-Things you may want to cover:
+1. clone repo
+2. bundle
+3. be rake db:create db:migrate db:seed
+4. be rails s
+5. in browser: localhost:3000
+6. select patient on search page
+7. template should render
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
