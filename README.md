@@ -12,7 +12,7 @@ to run:
 7. template should render
 
 Notes:
-- app/lib/mustache_parser.rb has the mustache language parser.
+- lib/mustache_parser.rb has the mustache language parser.
 - app/helpers/admissions_helper.rb has the template_field helper method used in summary template
 - template_field.rb model holds mustache expressions.  Each facility can have a custom set of template_fields that
   are referenced from the admissions/index.html.erb.
