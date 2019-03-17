@@ -6,7 +6,7 @@ facility.template_fields.create!(field_name: 'name', placeholder: '{{facility.na
 facility.template_fields.create!(field_name: 'first_name', placeholder: '{{patient.first_name}}')
 facility.template_fields.create!(field_name: 'middle_name', placeholder: '{{patient.middle_name}}')
 facility.template_fields.create!(field_name: 'last_name', placeholder: '{{patient.last_name}}')
-facility.template_fields.create!(field_name: 'medical_record_(mr)', placeholder: '{{patient.mr}}')
+facility.template_fields.create!(field_name: 'mr', placeholder: '{{patient.mr}}')
 facility.template_fields.create!(field_name: 'summary', placeholder: <<-ENDSUMMARY)
 This {{patient.age}} years old {{patient.gender}} was admitted to {{facility.name}} on 
 {{patient.admission.moment.date}} at {{patient.admission.moment.time}} due to 
